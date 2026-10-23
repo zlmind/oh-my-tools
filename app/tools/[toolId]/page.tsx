@@ -17,22 +17,26 @@ export async function generateMetadata({ params }: { params: Promise<{ toolId: s
 
   if (!tool) {
     return {
-      title: "工具未找到 - oh-my-tools",
+      title: "工具未找到 - mars-tools",
     }
   }
 
   const keywords = tool.keywords || []
-  const title = `${tool.name} - oh-my-tools 在线工具`
+  const title = `${tool.name} - mars-tools 在线工具`
   const description = tool.fullDescription || `免费在线${tool.name}工具。${tool.description}，支持本地处理，保护数据隐私。`
 
   return {
     title,
     description,
-    keywords: [...keywords, "在线工具", "开发者工具", "程序员工具箱", "oh-my-tools"].join(", "),
+    keywords: [...keywords, "在线工具", "开发者工具", "程序员工具箱", "mars-tools"].join(", "),
+    alternates: {
+      canonical: `/tools/${tool.id}`,
+    },
     openGraph: {
       title,
       description,
       type: "website",
+      url: `/tools/${tool.id}`,
     },
   }
 }
@@ -56,7 +60,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: `${tool.name} - oh-my-tools`,
+    name: `${tool.name} - mars-tools`,
     applicationCategory: 'DeveloperApplication',
     description: tool.fullDescription || `免费在线${tool.name}工具。${tool.description}，100%本地处理，保护数据隐私。`,
     url: getFullUrl(`/tools/${tool.id}`),
@@ -69,7 +73,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
     },
     author: {
       '@type': 'Organization',
-      name: 'oh-my-tools',
+      name: 'mars-tools',
       url: siteConfig.baseUrl,
     },
     aggregateRating: {

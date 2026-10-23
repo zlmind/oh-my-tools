@@ -12,16 +12,20 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.baseUrl),
   title: siteConfig.title,
   description: siteConfig.description,
   keywords: siteConfig.keywords,
+  alternates: {
+    canonical: '/',
+  },
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'oh-my-tools',
+    title: 'mars-tools',
   },
-  applicationName: 'oh-my-tools',
+  applicationName: 'mars-tools',
   authors: [{ name: siteConfig.author.name, url: siteConfig.author.url }],
   creator: siteConfig.author.name,
   publisher: siteConfig.author.name,
@@ -40,11 +44,20 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: '/logo.png',
+        width: 1875,
+        height: 2020,
+        alt: 'mars-tools - 程序员工具箱',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.shortDescription,
+    images: ['/logo.png'],
   },
   icons: {
     icon: [
@@ -74,13 +87,13 @@ export default function RootLayout({
   const websiteJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'oh-my-tools',
+    name: 'mars-tools',
     url: siteConfig.baseUrl,
     description: siteConfig.description,
     inLanguage: 'zh-CN',
     author: {
       '@type': 'Organization',
-      name: 'oh-my-tools',
+      name: 'mars-tools',
       url: siteConfig.links.github,
     },
     potentialAction: {
@@ -96,7 +109,7 @@ export default function RootLayout({
   const organizationJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'oh-my-tools',
+    name: 'mars-tools',
     url: siteConfig.baseUrl,
     logo: `${siteConfig.baseUrl}/logo.png`,
     sameAs: [siteConfig.links.github],

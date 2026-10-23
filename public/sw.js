@@ -1,6 +1,8 @@
 // Service Worker — 离线缓存,适配 Next.js 静态导出
-// 策略: cache-first for assets, network-first for HTML(保证页面更新及时)
-const CACHE_VERSION = 'v1'
+// 策略: stale-while-revalidate for assets, network-first for HTML(保证页面更新及时)
+// v2: 静态资源由 cache-first 改为 stale-while-revalidate，
+//     防止开发期旧版本 chunks 被永久缓存导致 "module factory is not available" 报错。
+const CACHE_VERSION = 'v2'
 const STATIC_CACHE = `oh-my-tools-static-${CACHE_VERSION}`
 const RUNTIME_CACHE = `oh-my-tools-runtime-${CACHE_VERSION}`
 
@@ -60,17 +62,17 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  // 静态资源: cache-first
+  // 静态资源: stale-while-revalidate（有缓存先返回，同时后台拉新；无缓存则直取网络）
   event.respondWith(
     caches.match(request).then((cached) => {
-      if (cached) return cached
-      return fetch(request).then((res) => {
+      const update = fetch(request).then((res) => {
         if (res.ok && res.status === 200) {
           const copy = res.clone()
           caches.open(RUNTIME_CACHE).then((cache) => cache.put(request, copy))
         }
         return res
-      })
+      }).catch(() => cached)
+      return cached || update
     })
   )
 })

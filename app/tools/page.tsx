@@ -4,7 +4,9 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { tools } from "@/lib/tools-config"
 
-// 工具箱入口页 - 重定向到第一个工具
+// 工具箱入口页 - 客户端重定向到第一个工具
+// （静态导出模式下不支持服务端 redirect()，生产环境的 SEO 重定向见
+//   public/_redirects【Cloudflare Pages】与 nginx.conf【nginx】）
 export default function ToolsPage() {
   const router = useRouter()
 

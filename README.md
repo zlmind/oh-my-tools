@@ -14,7 +14,7 @@
 [![Tools](https://img.shields.io/badge/Tools-35%2B-14b8a6)](#-功能列表)
 [![PWA](https://img.shields.io/badge/PWA-Ready-success?logo=pwa)](#-pwa-安装)
 
-[🌐 在线体验](https://tools.lylinux.net/) · [🧰 功能列表](#-功能列表) · [🎨 设计系统](#-设计系统) · [🚀 本地开发](#-本地开发) · [🤝 贡献](#-贡献)
+[🌐 在线体验](https://tools.marsbrightside.com/) · [🧰 功能列表](#-功能列表) · [🎨 设计系统](#-设计系统) · [🚀 本地开发](#-本地开发) · [🤝 贡献](#-贡献)
 
 </div>
 
@@ -212,7 +212,7 @@ pnpm start
 
 | 变量名 | 说明 | 示例 |
 |--------|------|------|
-| `NEXT_PUBLIC_SITE_URL` | 网站基础 URL，用于生成 sitemap.xml 和 robots.txt | `https://tools.lylinux.net` |
+| `NEXT_PUBLIC_SITE_URL` | 网站基础 URL，用于生成 sitemap.xml 和 robots.txt | `https://tools.marsbrightside.com` |
 
 ### Docker 部署
 
@@ -412,6 +412,6 @@ Made with ❤️ by developers, for developers
 
 ⭐ 如果这个项目对你有帮助，请给个 Star！
 
-[🌐 tools.lylinux.net](https://tools.lylinux.net/)
+[🌐 tools.marsbrightside.com](https://tools.marsbrightside.com/)
 
 </div>

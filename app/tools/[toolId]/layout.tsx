@@ -129,7 +129,7 @@ export default function ToolsLayout({ children }: { children: ReactNode }) {
               <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-foreground">
                 <Terminal className="h-5 w-5 text-background" />
               </div>
-              <span className="font-semibold text-lg tracking-tight">oh-my-tools</span>
+              <span className="font-semibold text-lg tracking-tight">mars-tools</span>
             </Link>
           </div>
           <div className="flex items-center gap-2">
@@ -382,7 +382,7 @@ export default function ToolsLayout({ children }: { children: ReactNode }) {
         <div className="px-3 md:px-4 py-6">
           <div className="flex flex-col items-center gap-2">
             <p className="text-sm text-muted-foreground text-center">
-              oh-my-tools - 开发者工具箱 · 所有工具均在本地运行，数据不会上传
+              mars-tools - 开发者工具箱 · 所有工具均在本地运行，数据不会上传
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>Made with</span>
